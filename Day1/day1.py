@@ -9,14 +9,13 @@ with open("input.txt") as f:
 
 for s in seq:
 
-    if s[0:1] == "L":
-        for i in range(1, int(s[1:]) + 1):
+    
+    for i in range(1, int(s[1:]) + 1):
+        if s[0:1] == "L":
             val = (100 if val == 0 else val)
             password2 = (password2 + 1) if val == 100 else password2
             val -= 1
-
-    if s[0:1] == "R":
-        for i in range(1, int(s[1:]) + 1):
+        else:
             val = (0 if val == 100 else val)
             password2 = (password2 + 1) if val == 0 else password2
             val += 1
