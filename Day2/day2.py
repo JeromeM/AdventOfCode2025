@@ -1,9 +1,9 @@
 with open("input.txt") as f:
     input = f.read()
-# input = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124"
+# input: str = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124"
 
-def part1():
-    output = 0
+def part1() -> int:
+    output: int = 0
     for product in input.split(","):
         start, end = map(int, product.split("-"))
         for pid in range(start, end + 1):
@@ -14,9 +14,9 @@ def part1():
                 output += pid
     return output
 
-def part2():
+def part2() -> int:
     import re
-    output = 0
+    output: int = 0
     for product in input.split(","):
         start, end = map(int, product.split("-"))
         invalids = [n for n in range(start, end + 1) if re.fullmatch(r'(.+)\1+', str(n)) is not None]
